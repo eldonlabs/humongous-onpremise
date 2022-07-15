@@ -68,7 +68,7 @@ INSTALL_DIRECTORY="humongous"
 if ! command_present wget; then
   if command_present yum; then
     $MAYBE_SUDO yum install wget
-  elif command_present yum; then
+  elif command_present apt-get; then
     $MAYBE_SUDO apt-get install wget
   fi
 fi
