@@ -133,7 +133,7 @@ else
 fi
 
 # Before creating the env file, let's make sure the user has a license key.
-echo "Please enter your license key. Contact licensing@humongous.io if you do not have a key."
+log_step "Enter your License key. Contact licensing@humongous.io if you do not have a key."
 read -p "Enter it here: " licenseKey
 
 if [[ "$licenseKey" == "" ]]; then
@@ -155,15 +155,9 @@ echo "DB_ADMIN_USERNAME=hio" >> .env
 echo "DB_ADMIN_PASSWORD=secret" >> .env
 echo '' >> .env
 
-# Add the current public IP as the base address. Default to localhost.
-if command_present dig; then
-  baseDomain=$(dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com | sed -e 's/^"//' -e 's/"$//')
-else
-  baseDomain="localhost"
-fi
-
+# set up base domain.
 echo '# Domain pointing to your Humongous deployment.' >> .env
-echo "BASE_DOMAIN=http://${baseDomain}:8080" >> .env
+echo "BASE_DOMAIN=http://localhost:8080" >> .env
 echo '' >> .env
 
 # Capture the license key.
@@ -178,5 +172,4 @@ echo "# This is typically used if you haven't deployed Humongous on a custom dom
 echo "COOKIE_INSECURE=true" >> .env
 
 # Start the app.
-log_step "Building Humongous!"
-$MAYBE_SUDO docker compose up -d
+./start.sh

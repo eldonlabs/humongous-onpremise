@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   app:
+    container_name: humongous_app
     build:
       context: ./
       dockerfile: Dockerfile
@@ -12,6 +13,7 @@ services:
       - db
   db:
     image: mongo
+    container_name: humongous_db
     env_file: ./.env
     restart: always
     environment:

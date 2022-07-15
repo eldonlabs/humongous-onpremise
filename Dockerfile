@@ -1,4 +1,4 @@
-FROM eldonlabs/humongous-onpremise:latest
+FROM eldonlabs/humongous-onpremise:1.0.333
 
 WORKDIR /app
 COPY . /app
