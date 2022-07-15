@@ -68,7 +68,7 @@ log_step 'Updating Humongous...'
 HUMONGOUS_PROCESSES="$($MAYBE_SUDO docker ps | (grep 'humongous' || true) | wc -l | awk '{print $1}')"
 
 if test "$HUMONGOUS_PROCESSES" -gt '0'; then
-  error_exit "Humongous is running. Restarting..."
+  log_warn "Humongous is running. Restarting..."
   echo ""
 fi
 
