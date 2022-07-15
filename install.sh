@@ -157,7 +157,7 @@ echo '' >> .env
 
 # set up base domain.
 echo '# Domain pointing to your Humongous deployment.' >> .env
-echo "BASE_DOMAIN=http://localhost:8080" >> .env
+echo "BASE_DOMAIN=http://127.0.0.1:8080" >> .env
 echo '' >> .env
 
 # Capture the license key.

@@ -78,7 +78,7 @@ $MAYBE_SUDO docker image prune -a -f
 
 echo ""
 echo "${CYAN}Navigate to${NORMAL}:"
-echo "  - ${WHITE}http://localhost:8080/app"
+echo "  - ${WHITE}http://127.0.0.1:8080/app"
 echo "  - http://${WHITE}[public_ip]:8080/app"
 echo ""
 echo "${CYAN}To STOP Humongous, run${NORMAL}: ${WHITE}${BOLD}./stop${NORMAL}"
